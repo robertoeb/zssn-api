@@ -5,9 +5,13 @@ FactoryBot.define do
     gender 'M'
     latitude { Faker::Number.decimal(2, 6) }
     longitude { Faker::Number.decimal(2, 6) }
+  end
 
-    factory :infected_survivor do
-      infection_mark Survivor::INFECTED_BITES
-    end
+  trait :infected do
+		infection_mark 3
+	end
+
+	trait :not_infected do
+		infection_mark 0
   end
 end

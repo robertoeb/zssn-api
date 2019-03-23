@@ -10,13 +10,9 @@ RSpec.describe SurvivorsController, type: :controller do
     FactoryBot.attributes_for :survivor
   }
 
-  let(:water){
-    FactoryBot.attributes_for :resource, :water
-  }
+  let(:water){ create :water }
 
-  let(:food){
-    FactoryBot.attributes_for :resource, :food
-  }
+  let(:food){ create :food }
 
   describe 'POST #create' do
     context 'with valid parameters' do
@@ -57,7 +53,7 @@ RSpec.describe SurvivorsController, type: :controller do
 
       expect(response).to be_success
       expect(response.status).to eq(200)
-      expect(json.count).to eq 2
+      expect(json.count).to eq 1
     end
   end
 

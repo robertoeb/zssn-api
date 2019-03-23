@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe TradesController, type: :controller do
+RSpec.describe TradesController, type: :controller do
   describe '#trade' do
     let(:survivor1) { create :survivor }
     let(:survivor2) { create :survivor }

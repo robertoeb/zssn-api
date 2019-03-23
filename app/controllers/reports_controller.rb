@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  before_action :check_survivors
+
   def infected_survivors
     render json: {
       percentage: percentage(infected_survivor_count / all_survivors_count)
@@ -24,6 +26,14 @@ class ReportsController < ApplicationController
     render json: {
       lostPoints: Resource.where(survivor_id: Survivor.infected).map(&:points).inject(:+)
     }
+  end
+
+  private
+
+  def check_survivors
+    unless Survivor.exists?
+      render json: { error: 'There are no survivors' }, status: :conflict
+    end
   end
 
   def percentage(number)

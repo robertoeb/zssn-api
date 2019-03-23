@@ -5126,3 +5126,552 @@ Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
 Completed 422 Unprocessable Entity in 86ms (Views: 0.3ms | ActiveRecord: 4.9ms)
 
 
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 14:56:00 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"999", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 999], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Completed 404 Not Found in 20ms (Views: 0.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 14:56:12 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"3", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Completed 404 Not Found in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-21 14:56:26 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Jose", "age"=>"25", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Food", "amount"=>6}]}}
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (14.1ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jose"], ["age", 25], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (14.0ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.5ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (2.0ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (2.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (1.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (147.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 343ms (Views: 0.7ms | ActiveRecord: 186.0ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 14:56:32 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"3", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 3], ["type", "Water"]]
+  ↳ app/models/trade.rb:81
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ? ORDER BY "resources"."id" ASC LIMIT ?[0m  [["survivor_id", 3], ["type", "Water"], ["LIMIT", 1]]
+  ↳ app/models/trade.rb:50
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 2], ["type", "Ammunition"]]
+  ↳ app/models/trade.rb:81
+Completed 422 Unprocessable Entity in 31ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 14:56:46 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"3", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Water", "amount"=>1}]}}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 3], ["type", "Water"]]
+  ↳ app/models/trade.rb:81
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ? ORDER BY "resources"."id" ASC LIMIT ?[0m  [["survivor_id", 3], ["type", "Water"], ["LIMIT", 1]]
+  ↳ app/models/trade.rb:50
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 2], ["type", "Water"]]
+  ↳ app/models/trade.rb:81
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ? ORDER BY "resources"."id" ASC LIMIT ?[0m  [["survivor_id", 2], ["type", "Water"], ["LIMIT", 1]]
+  ↳ app/models/trade.rb:50
+  [1m[36mResource Update All (121.9ms)[0m  [1m[33mUPDATE "resources" SET "survivor_id" = 2 WHERE "resources"."id" = ?[0m  [["id", 33]]
+  ↳ app/models/trade.rb:68
+  [1m[36mResource Update All (131.8ms)[0m  [1m[33mUPDATE "resources" SET "survivor_id" = 3 WHERE "resources"."id" = ?[0m  [["id", 17]]
+  ↳ app/models/trade.rb:69
+Completed 200 OK in 279ms (Views: 0.3ms | ActiveRecord: 256.1ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 15:13:18 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Water", "amount"=>1}]}}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Completed 404 Not Found in 8ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-21 15:43:43 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/survivors" for 127.0.0.1 at 2019-03-21 15:44:20 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/survivors" for 127.0.0.1 at 2019-03-21 15:44:38 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Jose", "age"=>"25", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824"}}
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Completed 409 Conflict in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 17:23:15 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Water", "amount"=>1}]}}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Completed 404 Not Found in 9ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-21 17:23:21 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"3", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Water", "amount"=>1}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 3], ["type", "Water"]]
+  ↳ app/models/trade.rb:81
+  [1m[36mResource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ? ORDER BY "resources"."id" ASC LIMIT ?[0m  [["survivor_id", 3], ["type", "Water"], ["LIMIT", 1]]
+  ↳ app/models/trade.rb:50
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ?[0m  [["survivor_id", 2], ["type", "Water"]]
+  ↳ app/models/trade.rb:81
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."type" = ? ORDER BY "resources"."id" ASC LIMIT ?[0m  [["survivor_id", 2], ["type", "Water"], ["LIMIT", 1]]
+  ↳ app/models/trade.rb:50
+  [1m[36mResource Update All (147.7ms)[0m  [1m[33mUPDATE "resources" SET "survivor_id" = 2 WHERE "resources"."id" = ?[0m  [["id", 17]]
+  ↳ app/models/trade.rb:68
+  [1m[36mResource Update All (276.9ms)[0m  [1m[33mUPDATE "resources" SET "survivor_id" = 3 WHERE "resources"."id" = ?[0m  [["id", 18]]
+  ↳ app/models/trade.rb:69
+Completed 200 OK in 486ms (Views: 0.7ms | ActiveRecord: 427.1ms)
+
+
+Started GET "/reports/infected_survivors" for 127.0.0.1 at 2019-03-21 21:30:07 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ReportsController#infected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark >= 3)[0m
+  ↳ app/controllers/reports_controller.rb:38
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:42
+Completed 200 OK in 45ms (Views: 8.3ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-21 21:35:52 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Jose", "age"=>"25", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Food", "amount"=>6}]}}
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (0.6ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jose"], ["age", 25], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mWater Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Water"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.1ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mFood Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("type", "survivor_id") VALUES (?, ?)[0m  [["type", "Food"], ["survivor_id", 4]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (135.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 230ms (Views: 0.8ms | ActiveRecord: 148.2ms)
+
+
+Started POST "/survivors/3/report_infection" for 127.0.0.1 at 2019-03-21 21:36:31 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"3", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (6.9ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 1], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (428.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 466ms (Views: 0.6ms | ActiveRecord: 435.9ms)
+
+
+Started POST "/survivors/3/report_infection" for 127.0.0.1 at 2019-03-21 21:36:34 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"3", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (0.5ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 2], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (140.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 155ms (Views: 0.3ms | ActiveRecord: 141.2ms)
+
+
+Started POST "/survivors/3/report_infection" for 127.0.0.1 at 2019-03-21 21:36:35 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"3", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (0.6ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 3], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (110.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 120ms (Views: 0.5ms | ActiveRecord: 111.0ms)
+
+
+Started GET "/reports/infected_survivors" for 127.0.0.1 at 2019-03-21 21:36:40 -0300
+Processing by ReportsController#infected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark >= 3)[0m
+  ↳ app/controllers/reports_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:42
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-22 14:11:38 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "name": "Jose", 
+        "age": "25", 
+        "gender": "M", 
+        "latitude": "-84.3879824", 
+        "longitude": "-84.3879824",
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/reports/infected_survivors" for 127.0.0.1 at 2019-03-22 14:49:17 -0300
+Processing by ReportsController#infected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark >= 3)[0m
+  ↳ app/controllers/reports_controller.rb:38
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:42
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/reports/resources_by_survivor" for 127.0.0.1 at 2019-03-22 15:01:38 -0300
+Processing by ReportsController#resources_by_survivor as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:34
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."type" = ?[0m  [["type", "Water"]]
+  ↳ app/controllers/reports_controller.rb:18
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:44
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."type" = ?[0m  [["type", "Food"]]
+  ↳ app/controllers/reports_controller.rb:19
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:44
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."type" = ?[0m  [["type", "Medication"]]
+  ↳ app/controllers/reports_controller.rb:20
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:44
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "resources" WHERE "resources"."type" = ?[0m  [["type", "Ammunition"]]
+  ↳ app/controllers/reports_controller.rb:21
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:44
+Completed 200 OK in 50ms (Views: 0.9ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/reports/lost_infected_points" for 127.0.0.1 at 2019-03-22 16:53:06 -0300
+Processing by ReportsController#lost_infected_points as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:34
+  [1m[36mResource Load (0.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."survivor_id" IN (SELECT "survivors"."id" FROM "survivors" WHERE (infection_mark >= 3))[0m
+  ↳ app/controllers/reports_controller.rb:27
+Completed 200 OK in 40ms (Views: 0.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/reports/lost_infected_points" for 127.0.0.1 at 2019-03-22 21:18:13 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ReportsController#lost_infected_points as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:34
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."survivor_id" IN (SELECT "survivors"."id" FROM "survivors" WHERE (infection_mark >= 3))[0m
+  ↳ app/controllers/reports_controller.rb:27
+Completed 200 OK in 144ms (Views: 1.0ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/reports/lost_infected_points" for 127.0.0.1 at 2019-03-22 21:19:51 -0300
+Processing by ReportsController#lost_infected_points as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:34
+  [1m[36mResource Load (0.4ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."survivor_id" IN (SELECT "survivors"."id" FROM "survivors" WHERE (infection_mark >= 3))[0m
+  ↳ app/controllers/reports_controller.rb:27
+Completed 200 OK in 28ms (Views: 0.7ms | ActiveRecord: 1.6ms)
+
+
