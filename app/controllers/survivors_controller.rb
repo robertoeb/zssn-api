@@ -15,7 +15,7 @@ class SurvivorsController < ApplicationController
   # POST /survivors
   def create
     if resources_params.has_key?(:resources)
-      @survivor = Survivor.new(survivor_params.merge(resources_attributes: parsed_resources))
+      @survivor = Survivor.new(survivor_params.merge(resources_attributes: resources_params[:resources]))
 
       if @survivor.save
         render json: @survivor, status: :created
@@ -60,18 +60,10 @@ class SurvivorsController < ApplicationController
   end
 
   def resources_params
-    params.require(:survivor).permit(resources: [:type, :amount])
+    params.require(:survivor).permit(resources: [:item, :amount])
   end
 
   def update_params
     params.require(:survivor).permit(:latitude, :longitude)
-  end
-
-  def parsed_resources
-    resources = []
-    resources_params[:resources].each do |resource|
-      resource[:amount].to_i.times { resources << { type: resource[:type] } }
-    end
-    resources
   end
 end

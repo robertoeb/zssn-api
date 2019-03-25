@@ -1,31 +1,44 @@
 class ReportsController < ApplicationController
   before_action :check_survivors
 
+    # GET /reports/infected_survivors
   def infected_survivors
     render json: {
       percentage: percentage(infected_survivor_count / all_survivors_count)
     }
   end
 
+  # GET /reports/uninfected_survivors
   def uninfected_survivors
     render json: {
       percentage: percentage(survivor_count / all_survivors_count)
     }
   end
 
+  # GET /reports/resources_by_survivor
   def resources_by_survivor
-    render json: {
-      water: Resource.water.count.to_f / survivor_count,
-      food: Resource.food.count.to_f / survivor_count,
-      medication: Resource.medication.count.to_f / survivor_count,
-      ammunition: Resource.ammunition.count.to_f / survivor_count
-    }
+    averages = {}
+
+    Resource::RESOURCES_TYPES.each do |resource|
+      resource_amount = Resource.public_send(resource).sum(:amount).to_f
+      averages[resource] = resource_amount / survivor_count
+    end
+
+    render json: { averages: averages }, status: :ok
   end
 
+
+
+  # GET /reports/lost_infected_points
   def lost_infected_points
-    render json: {
-      lostPoints: Resource.where(survivor_id: Survivor.infected).map(&:points).inject(:+)
-    }
+    @lost_points = 0
+    infecteds = Survivor.infected.pluck(:id)
+    resources = Resource.where(survivor_id: infecteds)
+    resources.each do |resource|
+      @lost_points = Resource.points_sum(resource) + @lost_points
+    end
+
+    render json: { lost_points: @lost_points }, status: :ok
   end
 
   private

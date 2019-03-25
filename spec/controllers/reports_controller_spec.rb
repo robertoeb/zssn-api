@@ -1,23 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe ReportsController, type: :controller do
-  let!(:water) { create :water }
-
-  let!(:food) { create :food }
-  let!(:medication) { create :medication }
-  let!(:ammunition) { create :ammunition }
-
-  before(:each) do
-    create_list(:survivor,  5, :infected, 
-      resources: [
-        create(:water),
-        create(:food),
-        create(:medication),
-        create(:ammunition)
+  before do
+    create_list(:survivor,  10, :infected, 
+      resources_attributes: [
+        attributes_for(:resource, :water, amount: 6),
+        attributes_for(:resource, :food,  amount: 9),
+        attributes_for(:resource, :medication, amount: 4),
+        attributes_for(:resource, :ammunition, amount: 15)
       ]
-    )
+      )
 
-    create_list(:survivor, 10, :not_infected)
+    create_list(:survivor, 25, :not_infected,
+      resources_attributes: [
+        attributes_for(:resource, :water, amount: 12),
+        attributes_for(:resource, :food,  amount: 5),
+        attributes_for(:resource, :medication, amount: 6),
+        attributes_for(:resource, :ammunition, amount: 26)
+      ]
+      )
   end
 
   describe 'GET #infected_survivors' do
@@ -27,7 +28,7 @@ RSpec.describe ReportsController, type: :controller do
 
         json = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-        expect(json['percentage']).to eq '33.33%'
+        expect(json['percentage']).to eq '28.57%'
       end
     end
 
@@ -51,7 +52,7 @@ RSpec.describe ReportsController, type: :controller do
 
         json = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-        expect(json['percentage']).to eq '66.67%'
+        expect(json['percentage']).to eq '71.43%'
       end
     end
 
@@ -74,10 +75,10 @@ RSpec.describe ReportsController, type: :controller do
 
       json = JSON.parse(response.body)
       expect(response).to have_http_status(:ok)
-      expect(json['water']).to eq 2.5
-      expect(json['food']).to eq 0.1
-      expect(json['medication']).to eq 0.1
-      expect(json['ammunition']).to eq 0.1
+      expect(json['averages']['water']).to eq 14.4
+      expect(json['averages']['food']).to eq 8.6
+      expect(json['averages']['medication']).to eq 7.6
+      expect(json['averages']['ammunition']).to eq 32
     end
   end
 
@@ -87,7 +88,7 @@ RSpec.describe ReportsController, type: :controller do
 
       json = JSON.parse(response.body)
       expect(response).to have_http_status(:ok)
-      expect(json['lostPoints']).to eq 205
+      expect(json['lost_points']).to eq 740
     end
   end
 end

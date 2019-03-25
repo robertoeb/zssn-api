@@ -4,9 +4,8 @@ class TradesController < ApplicationController
     @survivor2 = Survivor.find(trade_params[:survivor2][:id])
 
     trade = Trade.new(@survivor1, @survivor2,
-      trade_params[:survivor1][:resources],
-      trade_params[:survivor2][:resources]
-    )
+                      trade_params[:survivor1][:resources],
+                      trade_params[:survivor2][:resources])
     trade.process
 
     if trade.valid
@@ -19,8 +18,7 @@ class TradesController < ApplicationController
   private
 
   def trade_params
-    params.require(:trade).permit(survivor1: [:id, resources: [:type, :amount]],
-      survivor2: [:id, resources: [:type, :amount]]
-    )
+    params.require(:trade).permit(survivor1: [:id, resources: [:item, :amount]],
+                                  survivor2: [:id, resources: [:item, :amount]])
   end
 end

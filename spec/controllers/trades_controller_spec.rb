@@ -1,218 +1,115 @@
+
 require 'rails_helper'
 
-RSpec.describe TradesController, type: :controller do
-  describe '#trade' do
-    let(:survivor1) { create :survivor }
-    let(:survivor2) { create :survivor }
+RSpec.describe TradesController, item: :controller do
 
-    let!(:water_resources) { create :water, survivor: survivor1 }
-    let!(:food_resources) { create_list :food, 2, survivor: survivor1 }
-    let!(:medication_resources) { create_list :medication, 2, survivor: survivor2 }
-    let!(:ammunition_resources) { create_list :ammunition, 6, survivor: survivor2 }
+  let(:survivor1) {
+    FactoryBot.create :survivor,
+    resources_attributes: [
+      FactoryBot.attributes_for(:resource, :water, amount: 6),
+      FactoryBot.attributes_for(:resource, :medication, amount: 3),
+    ]
+  }
 
-    let(:survivor1_resources_params) do
-      [
-        {
-          type: 'Water',
-          amount: 1
-        },
-        {
-          type: 'Food',
-          amount: 2
-        }
-      ]
-    end
+  let(:survivor2) {
+    FactoryBot.create :survivor,
+    resources_attributes: [
+      FactoryBot.attributes_for(:resource, :medication, amount: 7),
+      FactoryBot.attributes_for(:resource, :ammunition, amount: 10),
+    ]
+  }
 
-    let(:survivor2_resources_params) do
-      [
-        {
-          type: 'Medication',
-          amount: 2
-        },
-        {
-          type: 'Ammunition',
-          amount: 6
-        }
-      ]
-    end
+  describe "Trade the resources between two survivors" do
+    let(:resources_to_trade_survivor1) {
+      [ {item: 'Water', amount: 1}, {item: 'Medication', amount: 1} ]
+    }
 
-    let(:request_params) do
+    let(:resources_to_trade_survivor2) {
+      [ {item: 'Ammunition', amount: 6} ]
+    }
+
+    let(:trade_params) do
       {
         trade: {
           survivor1: {
             id: survivor1.id,
-            resources: survivor1_resources_params
+            resources: resources_to_trade_survivor1
           },
           survivor2: {
             id: survivor2.id,
-            resources: survivor2_resources_params
+            resources: resources_to_trade_survivor2
           }
         }
       }
     end
 
-    it 'trades resources between survivors' do
-      post :trade, params: request_params
+    it 'should raise error when a survivor does not exist' do
+      trade_params[:trade][:survivor1][:id] = '999'
 
-      expect(response.status).to eq(200)
+      post :trade, params: trade_params
 
       json = JSON.parse(response.body)
-      expect(json['message']).to eq('Resources were traded successfully')
-
-      expect(water_resources.reload.survivor).to eq(survivor2)
-      food_resources.each { |resource| expect(resource.reload.survivor).to eq(survivor2) }
-      medication_resources.each { |resource| expect(resource.reload.survivor).to eq(survivor1) }
-      ammunition_resources.each { |resource| expect(resource.reload.survivor).to eq(survivor1) }
+      expect(response).to have_http_status(:not_found)
+      expect(json['error']).to eq("Couldn't find Survivor with 'id'=999")
     end
 
-    context 'when a survivor is not found' do
-      let(:request_params) do
-        {
-          trade: {
-            survivor1: {
-              id: 999,
-              resources: survivor1_resources_params
-            },
-            survivor2: {
-              id: survivor2.id,
-              resources: survivor2_resources_params
-            }
-          }
-        }
-      end
+    it 'should not allow trade when a survivor is infected' do
+      survivor2.update_attribute(:infection_mark, 4)
 
-      it 'returns a survivor not found error' do
-        post :trade, params: request_params
+      post :trade, params: trade_params
 
-        expect(response.status).to eq(404)
-
-        json = JSON.parse(response.body)
-        expect(json['error']).to eq("Couldn't find Survivor with 'id'=999")
-      end
+      json = JSON.parse(response.body)
+      expect(response).to have_http_status(:conflict)
+      expect(json['error']).to eq("Survivor2 It's infected! Run away or kill him!")
     end
 
-    context 'when a survivor is infected' do
-      it 'returns an infected survivor error for the first survivor' do
-        survivor1.update_attribute(:infection_mark, Survivor::INFECTED_BITES)
+    it 'should not allow trade when a survivor has not enough resources' do 
+      survivor2.resources.find_by(item: 'Ammunition').update(amount: 2)
 
-        post :trade, params: request_params
+      post :trade, params: trade_params, as: :json
+      expect(response).to have_http_status(:conflict)
 
-        expect(response.status).to eq(409)
+      json = JSON.parse(response.body)
+      expect(json['error']).to eq("Invalid resources for Survivor2")
 
-        json = JSON.parse(response.body)
-        expect(json['error']).to eq('Survivor 1 It\'s a walker! Run or kill him!')
-      end
+      survivor1.reload
 
-      it 'returns an infected survivor error for the second survivor' do
-        survivor2.update_attribute(:infection_mark, Survivor::INFECTED_BITES)
-
-        post :trade, params: request_params
-
-        expect(response.status).to eq(409)
-
-        json = JSON.parse(response.body)
-        expect(json['error']).to eq('Survivor 2 It\'s a walker! Run or kill him!')
-      end
+      expect(survivor1.resources.find_by(item: 'Water').amount).to eq 6
+      expect(survivor1.resources.find_by(item: 'Medication').amount).to eq 3
     end
 
-    context 'when a survivor does not have the described resources' do
-      context 'for the first survivor' do
-        let(:survivor1_resources_params) do
-          [
-            {
-              type: 'Water',
-              amount: 2
-            },
-            {
-              type: 'Food',
-              amount: 2
-            }
-          ]
-        end
+    it 'should not allow trade when resources are not balanced' do 
+      trade_params[:trade][:survivor1][:resources][0][:amount] = 6
 
-        it 'returns an invalid resources error' do
-          post :trade, params: request_params
+      post :trade, params: trade_params, as: :json
 
-          expect(response.status).to eq(422)
+      expect(response).to have_http_status(:conflict)
 
-          json = JSON.parse(response.body)
-          expect(json['error']).to eq('Invalid resources for Survivor 1')
-        end
-      end
+      json = JSON.parse(response.body)
+      expect(json['error']).to eq('Resources points is not balanced both sides')
 
-      context 'for the second survivor' do
-        let(:survivor2_resources_params) do
-          [
-            {
-              type: 'Medication',
-              amount: 2
-            },
-            {
-              type: 'Ammunition',
-              amount: 10
-            }
-          ]
-        end
+      survivor1.reload
 
-        it 'returns an invalid resources error' do
-          post :trade, params: request_params
-
-          expect(response.status).to eq(422)
-
-          json = JSON.parse(response.body)
-          expect(json['error']).to eq('Invalid resources for Survivor 2')
-        end
-      end
+      expect(survivor1.resources.find_by(item: 'Water').amount).to eq 6
+      expect(survivor1.resources.find_by(item: 'Medication').amount).to eq 3
     end
 
-    context 'when sides offer distinct amount of points' do
-      context 'for the first survivor' do
-        let(:survivor1_resources_params) do
-          [
-            {
-              type: 'Water',
-              amount: 1
-            },
-            {
-              type: 'Food',
-              amount: 1
-            }
-          ]
-        end
+    it 'should successfully trade resources between two survivors' do
+      post :trade, params: trade_params, as: :json
 
-        it 'returns an invalid amount error' do
-          post :trade, params: request_params
+      expect(response).to have_http_status(:ok)
 
-          expect(response.status).to eq(422)
+      json = JSON.parse(response.body)
+      expect(json['message']).to eq('Resources where traded successfully')
 
-          json = JSON.parse(response.body)
-          expect(json['error']).to eq('Invalid amount of points between both sides')
-        end
-      end
+      survivor1.reload
+      survivor2.reload
 
-      context 'for the second survivor' do
-        let(:survivor2_resources_params) do
-          [
-            {
-              type: 'Medication',
-              amount: 2
-            },
-            {
-              type: 'Ammunition',
-              amount: 1
-            }
-          ]
-        end
+      expect(survivor1.resources.find_by(item: 'Water').amount).to eq 5
+      expect(survivor1.resources.find_by(item: 'Medication').amount).to eq 2
 
-        it 'returns an invalid amount error' do
-          post :trade, params: request_params
-
-          expect(response.status).to eq(422)
-
-          json = JSON.parse(response.body)
-          expect(json['error']).to eq('Invalid amount of points between both sides')
-        end
-      end
+      expect(survivor2.resources.find_by(item: 'Ammunition').amount).to eq 4
     end
   end
+
 end

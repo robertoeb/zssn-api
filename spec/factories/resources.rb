@@ -1,22 +1,22 @@
 FactoryBot.define do
   factory :resource do
-    factory :water do
-      type 'Water'
+    trait :water do
+      item 'Water'
+      amount nil
     end
 
-    factory :food do
-      type 'Food'
+    trait :food do
+      item 'Food'
+      amount nil
     end
 
-    factory :medication do
-      type 'Medication'
+    trait :medication do
+      item 'Medication'
+      amount nil
     end
 
-    factory :ammunition do
-      type 'Ammunition'
-    end
-
-    factory :amount do
+    trait :ammunition do
+      item 'Ammunition'
       amount nil
     end
   end

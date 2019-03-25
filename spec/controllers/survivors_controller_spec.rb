@@ -3,16 +3,21 @@ require 'rails_helper'
 RSpec.describe SurvivorsController, type: :controller do
 
   let(:survivor_params) {
-    FactoryBot.attributes_for :survivor, resources: [water, food]
+    FactoryBot.attributes_for :survivor,
+    resources: [water, food]
   }
 
   let(:invalid_attributes) {
     FactoryBot.attributes_for :survivor
   }
 
-  let(:water){ create :water }
+  let(:water){
+    FactoryBot.attributes_for :resource, :water
+  }
 
-  let(:food){ create :food }
+  let(:food){
+    FactoryBot.attributes_for :resource, :food
+  }
 
   describe 'POST #create' do
     context 'with valid parameters' do
