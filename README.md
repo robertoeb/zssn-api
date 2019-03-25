@@ -56,8 +56,7 @@ You, as a zombie resistance member (and the last survivor who knows how to code)
 Application will be runing at [localhost:3000](http://localhost:3000).
 
 ## Live Version
-
-You can test a live version of the API by [clicking here](http://zssn.ml:3000/survivors)
+You can test a live version of the API using a URL [http://zssn.ml:3000](http://zssn.ml:3000/survivors)
 
 ## API Documentation
 
