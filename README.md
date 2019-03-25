@@ -9,6 +9,7 @@ You, as a zombie resistance member (and the last survivor who knows how to code)
 ## Table of Contents
 
 * [Installation](#installation)
+* [Live Version](#live-version)
 * [API Documentation](#api-documentation)
   * [List Survivors](#list-survivors)
   * [Add Survivors](#add-survivors)
@@ -39,7 +40,12 @@ You, as a zombie resistance member (and the last survivor who knows how to code)
 	$ bundle install
 	~~~
 
-3. Set the database connection at the config file `config/mongoid.yml`.
+3. Create and migrate the database.
+
+    ~~~ sh
+    $ rails db:create
+    $ rails db:migrate
+    ~~~
 
 4. Start the application
 
@@ -48,6 +54,10 @@ You, as a zombie resistance member (and the last survivor who knows how to code)
 	~~~
 
 Application will be runing at [localhost:3000](http://localhost:3000).
+
+## Live Version
+
+You can test a live version of the API by [clicking here](http://zssn.ml:3000/survivors)
 
 ## API Documentation
 
