@@ -15050,3 +15050,1776 @@ FOREIGN KEY ("survivor_id")
   ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+Started GET "/survivors" for 127.0.0.1 at 2019-03-25 10:43:45 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (15.0ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors"[0m
+  ↳ app/controllers/survivors_controller.rb:7
+Completed 200 OK in 20ms (Views: 4.7ms | ActiveRecord: 15.5ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 10:44:53 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Rick Grimes", "age"=>"38", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (17.9ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rick Grimes"], ["age", 38], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (8.0ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (63.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 379ms (Views: 2.0ms | ActiveRecord: 112.3ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 10:46:18 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Carl Grimes", "age"=>"14", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (1.5ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carl Grimes"], ["age", 14], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (1.3ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.8ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (86.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 261ms (Views: 2.2ms | ActiveRecord: 109.3ms)
+
+
+Started GET "/survivors" for 127.0.0.1 at 2019-03-25 10:46:55 -0300
+Processing by SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors"[0m
+  ↳ app/controllers/survivors_controller.rb:7
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/survivors" for 127.0.0.1 at 2019-03-25 10:47:21 -0300
+Processing by SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors"[0m
+  ↳ app/controllers/survivors_controller.rb:7
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 10:50:05 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Glenn Rhee", "age"=>"27", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}, {"type"=>"Food", "amount"=>30}, {"type"=>"Medication", "amount"=>20}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (2.7ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Glenn Rhee"], ["age", 27], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (1.8ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (1.0ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (2.0ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 30], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (1.0ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 20], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (118.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 345ms (Views: 2.9ms | ActiveRecord: 152.1ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 10:53:02 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"3"}
+  [1m[36mSurvivor Load (1.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[36mSurvivor Update (1.2ms)[0m  [1m[33mUPDATE "survivors" SET "latitude" = ?, "longitude" = ? WHERE "survivors"."id" = ?[0m  [["latitude", 33.749], ["longitude", 84.388], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (86.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 133ms (Views: 1.4ms | ActiveRecord: 89.8ms)
+
+
+Started PATCH "/survivors/34" for 127.0.0.1 at 2019-03-25 10:56:11 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"34"}
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+Completed 404 Not Found in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 10:57:14 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "latitude": "33.7490", 
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "latitude": "33.7490", 
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 10:57:55 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490"}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 10:59:50 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "latitude": ssss
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "latitude": ssss
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 11:01:56 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: survivor):
+  
+app/controllers/survivors_controller.rb:67:in `update_params'
+app/controllers/survivors_controller.rb:32:in `update'
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 11:02:33 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 11:02:39 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"a"}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[36mSurvivor Update (0.5ms)[0m  [1m[33mUPDATE "survivors" SET "longitude" = ? WHERE "survivors"."id" = ?[0m  [["longitude", 0.0], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (275.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 293ms (Views: 1.3ms | ActiveRecord: 277.2ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 11:02:48 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[36mSurvivor Update (1.4ms)[0m  [1m[33mUPDATE "survivors" SET "longitude" = ? WHERE "survivors"."id" = ?[0m  [["longitude", 84.388], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (194.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 211ms (Views: 0.5ms | ActiveRecord: 196.3ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 11:02:52 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "latitude": "33.7490", 
+        "longitude": "84.3880",
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "latitude": "33.7490", 
+        "longitude": "84.3880",
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/survivors/2/report_infection" for 127.0.0.1 at 2019-03-25 11:11:35 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"2", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (0.6ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 1], ["id", 2]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (127.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 169ms (Views: 2.2ms | ActiveRecord: 130.0ms)
+
+
+Started POST "/survivors/42/report_infection" for 127.0.0.1 at 2019-03-25 11:12:10 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"42", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+Completed 404 Not Found in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:14:57 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:16:08 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 8.1ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/models/resource.rb:19:in `*'
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:18:06 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (2.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 6.9ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:21:46 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:22:16 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 4.2ms)
+
+
+  
+NoMethodError (undefined method `points_sum' for #<Class:0x00007fbd28012c40>):
+  
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:23:08 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 3.7ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:29:18 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 6.5ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/models/resource.rb:19:in `*'
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:29:53 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4000}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.8ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 2]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 63ms (Views: 0.3ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:30:37 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"122", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 122], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Completed 404 Not Found in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/survivors/2/report_infection" for 127.0.0.1 at 2019-03-25 11:31:34 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"2", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (3.8ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 2], ["id", 2]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (553.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 591ms (Views: 0.3ms | ActiveRecord: 557.4ms)
+
+
+Started POST "/survivors/2/report_infection" for 127.0.0.1 at 2019-03-25 11:31:38 -0300
+Processing by SurvivorsController#report_infection as */*
+  Parameters: {"id"=>"2", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[36mSurvivor Update (0.3ms)[0m  [1m[33mUPDATE "survivors" SET "infection_mark" = ? WHERE "survivors"."id" = ?[0m  [["infection_mark", 3], ["id", 2]]
+  ↳ app/controllers/survivors_controller.rb:41
+  [1m[35m (168.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:41
+Completed 200 OK in 173ms (Views: 0.2ms | ActiveRecord: 168.8ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:31:50 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"type"=>"Ammunition", "amount"=>4}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Completed 409 Conflict in 11ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:32:41 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+  
+TypeError (nil can't be coerced into Integer):
+  
+app/models/resource.rb:19:in `*'
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:33:17 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 5.6ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:33:49 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 6.2ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:34:05 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.0ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 6.8ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:34:52 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 5.9ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:35:42 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 10.0ms)
+
+
+  
+NameError (undefined local variable or method `survivor1_resources_params' for #<Trade:0x00007fbd203372e8>
+Did you mean?  @survivor1_resources_params
+               @survivor2_resources_params):
+  
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:36:22 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.7ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 6.2ms)
+
+
+  
+NoMethodError (undefined method `points_sum' for #<Trade:0x00007fbd202ad098>):
+  
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:36:33 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 11.6ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/trade.rb:96:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:37:02 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 6.3ms)
+
+
+  
+NameError (undefined local variable or method `resource' for #<Trade:0x00007fbd200c3048>
+Did you mean?  resource_param):
+  
+app/models/trade.rb:96:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:37:15 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/trade.rb:96:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:38:01 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started GET "/survivors" for 127.0.0.1 at 2019-03-25 11:38:07 -0300
+Processing by SurvivorsController#index as */*
+  Parameters: {"survivor"=>{}}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT "survivors".* FROM "survivors"[0m
+  ↳ app/controllers/survivors_controller.rb:7
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:38:13 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:46:10 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:50:39 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:53:10 -0300
+  
+SyntaxError (/home/roberto/Documents/Ruby/zssn-api/app/models/trade.rb:93: syntax error, unexpected end, expecting end-of-input
+  end
+  ^~~):
+  
+app/models/trade.rb:93: syntax error, unexpected end, expecting end-of-input
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 11:53:31 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.9ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 4.6ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:04:21 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 3.8ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (119.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (107.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+Migrating to CreateSurvivors (20190318235202)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "survivors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "gender" varchar(1), "latitude" float, "longitude" float, "infection_mark" integer DEFAULT 0)[0m
+  ↳ db/migrate/20190318235202_create_survivors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190318235202"]]
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (97.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+Migrating to CreateResources (20190323012036)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "resources" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "item" varchar, "amount" integer, "survivor_id" integer, CONSTRAINT "fk_rails_a37fe4a4e9"
+FOREIGN KEY ("survivor_id")
+  REFERENCES "survivors" ("id")
+)[0m
+  ↳ db/migrate/20190323012036_create_resources.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_resources_on_survivor_id" ON "resources" ("survivor_id")[0m
+  ↳ db/migrate/20190323012036_create_resources.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190323012036"]]
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (110.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-25 15:05:33.307230"], ["updated_at", "2019-03-25 15:05:33.307230"]]
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (67.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/bin/rake:23
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 12:05:53 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roberto/.rbenv/versions/2.6.2/lib/ruby/gems/2.6.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Glenn Rhee", "age"=>"27", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}, {"type"=>"Food", "amount"=>30}, {"type"=>"Medication", "amount"=>20}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (0.6ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Glenn Rhee"], ["age", 27], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (1.0ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.5ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 30], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.1ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 20], ["survivor_id", 1]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (71.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 159ms (Views: 0.9ms | ActiveRecord: 77.0ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 12:06:16 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Carl Grimmes", "age"=>"14", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}, {"type"=>"Food", "amount"=>30}, {"type"=>"Medication", "amount"=>20}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (0.6ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Carl Grimmes"], ["age", 14], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.3ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 30], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 20], ["survivor_id", 2]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (185.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 208ms (Views: 2.5ms | ActiveRecord: 186.8ms)
+
+
+Started POST "/survivors" for 127.0.0.1 at 2019-03-25 12:06:27 -0300
+Processing by SurvivorsController#create as */*
+  Parameters: {"survivor"=>{"name"=>"Rick Grimmes", "age"=>"38", "gender"=>"M", "latitude"=>"-84.3879824", "longitude"=>"-84.3879824", "resources"=>[{"type"=>"Water", "amount"=>10}, {"type"=>"Ammunition", "amount"=>60}, {"type"=>"Food", "amount"=>30}, {"type"=>"Medication", "amount"=>20}]}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+Unpermitted parameter: :resources
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameters: :name, :age, :gender, :latitude, :longitude
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mSurvivor Create (0.6ms)[0m  [1m[32mINSERT INTO "survivors" ("name", "age", "gender", "latitude", "longitude") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Rick Grimmes"], ["age", 38], ["gender", "M"], ["latitude", -84.3879824], ["longitude", -84.3879824]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.4ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 10], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 60], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 30], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[36mResource Create (0.2ms)[0m  [1m[32mINSERT INTO "resources" ("amount", "survivor_id") VALUES (?, ?)[0m  [["amount", 20], ["survivor_id", 3]]
+  ↳ app/controllers/survivors_controller.rb:20
+  [1m[35m (139.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:20
+Completed 201 Created in 167ms (Views: 0.6ms | ActiveRecord: 141.6ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:06:35 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.3ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:07:02 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.5ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (1.1ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 5.4ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:07:40 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 3.1ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:08:59 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"type"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"type"=>"Ammunition", "amount"=>3}]}}}
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.4ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[36mSurvivor Load (0.6ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+Unpermitted parameter: :type
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 1]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" IS NULL[0m  [["survivor_id", 3]]
+  ↳ app/models/trade.rb:83
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 5.0ms)
+
+
+  
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  
+app/models/resource.rb:19:in `points_sum'
+app/models/trade.rb:88:in `block in check_points'
+app/models/trade.rb:87:in `each'
+app/models/trade.rb:87:in `check_points'
+app/models/trade.rb:49:in `check_inconsistent_resources'
+app/models/trade.rb:23:in `process'
+app/controllers/trades_controller.rb:9:in `trade'
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:09:27 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"item"=>"Ammunition", "amount"=>3}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Medication"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 30ms (Views: 5.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:09:33 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Medication", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"item"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Medication"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 9ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:09:41 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"3", "resources"=>[{"item"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 9ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:10:01 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"item"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 15ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:11:44 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"item"=>"Ammunition", "amount"=>4}]}}}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 90ms (Views: 0.7ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:15:36 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"item"=>"Ammunition", "amount"=>5}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 2], ["item", "Ammunition"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 38ms (Views: 0.4ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:15:44 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1000}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"item"=>"Ammunition", "amount"=>5}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 9ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/trade" for 127.0.0.1 at 2019-03-25 12:16:23 -0300
+Processing by TradesController#trade as */*
+  Parameters: {"trade"=>{"survivor1"=>{"id"=>"1", "resources"=>[{"item"=>"Water", "amount"=>1}]}, "survivor2"=>{"id"=>"2", "resources"=>[{"item"=>"Ammunition", "amount"=>5}]}}}
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:3
+  [1m[36mSurvivor Load (0.2ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trades_controller.rb:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 1], ["item", "Water"]]
+  ↳ app/models/trade.rb:83
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT "resources"."amount" FROM "resources" WHERE "resources"."survivor_id" = ? AND "resources"."item" = ?[0m  [["survivor_id", 2], ["item", "Ammunition"]]
+  ↳ app/models/trade.rb:83
+Completed 409 Conflict in 28ms (Views: 0.3ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/reports/uninfected_survivors" for 127.0.0.1 at 2019-03-25 12:16:54 -0300
+Processing by ReportsController#uninfected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:65
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/reports/infected_survivors" for 127.0.0.1 at 2019-03-25 12:17:34 -0300
+Processing by ReportsController#infected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark >= 3)[0m
+  ↳ app/controllers/reports_controller.rb:61
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:65
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reports/uninfected_survivors" for 127.0.0.1 at 2019-03-25 12:18:15 -0300
+Processing by ReportsController#uninfected_survivors as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors"[0m
+  ↳ app/controllers/reports_controller.rb:65
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/reports/resources_by_survivor" for 127.0.0.1 at 2019-03-25 12:18:44 -0300
+Processing by ReportsController#resources_by_survivor as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("resources"."amount") FROM "resources" WHERE "resources"."item" = ?[0m  [["item", "Water"]]
+  ↳ app/controllers/reports_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("resources"."amount") FROM "resources" WHERE "resources"."item" = ?[0m  [["item", "Food"]]
+  ↳ app/controllers/reports_controller.rb:23
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT SUM("resources"."amount") FROM "resources" WHERE "resources"."item" = ?[0m  [["item", "Medication"]]
+  ↳ app/controllers/reports_controller.rb:23
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("resources"."amount") FROM "resources" WHERE "resources"."item" = ?[0m  [["item", "Ammunition"]]
+  ↳ app/controllers/reports_controller.rb:23
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "survivors" WHERE (infection_mark < 3)[0m
+  ↳ app/controllers/reports_controller.rb:57
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/reports/lost_infected_points" for 127.0.0.1 at 2019-03-25 12:19:08 -0300
+Processing by ReportsController#lost_infected_points as */*
+  Parameters: {"report"=>{}}
+  [1m[36mSurvivor Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "survivors" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/reports_controller.rb:47
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "survivors"."id" FROM "survivors" WHERE (infection_mark >= 3)[0m
+  ↳ app/controllers/reports_controller.rb:35
+  [1m[36mResource Load (0.3ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE 1=0[0m
+  ↳ app/controllers/reports_controller.rb:37
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 12:22:23 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivor"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"3"}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[36mSurvivor Update (0.4ms)[0m  [1m[33mUPDATE "survivors" SET "latitude" = ?, "longitude" = ? WHERE "survivors"."id" = ?[0m  [["latitude", 33.749], ["longitude", 84.388], ["id", 3]]
+  ↳ app/controllers/survivors_controller.rb:32
+  [1m[35m (121.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/survivors_controller.rb:32
+Completed 200 OK in 134ms (Views: 1.2ms | ActiveRecord: 121.8ms)
+
+
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 12:24:36 -0300
+Processing by SurvivorsController#update as */*
+  Parameters: {"survivr"=>{"latitude"=>"33.7490", "longitude"=>"84.3880"}, "id"=>"3", "survivor"=>{}}
+  [1m[36mSurvivor Load (0.3ms)[0m  [1m[34mSELECT  "survivors".* FROM "survivors" WHERE "survivors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/survivors_controller.rb:54
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: survivor):
+  
+app/controllers/survivors_controller.rb:67:in `update_params'
+app/controllers/survivors_controller.rb:32:in `update'
+Started PATCH "/survivors/3" for 127.0.0.1 at 2019-03-25 12:24:49 -0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "survivor": 
+    {
+        "latitude": aa, 
+        "longitude": "84.3880"
+    }
+}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+    "survivor": 
+    {
+        "latitude": aa, 
+        "longitude": "84.3880"
+    }
+}'):
+  
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:117:in `rescue in parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch'
+rack (2.0.6) lib/rack/request.rb:59:in `fetch_header'
+actionpack (5.2.2.1) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (5.2.2.1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:290:in `_wrapper_enabled?'
+actionpack (5.2.2.1) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (5.2.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+activerecord (5.2.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'

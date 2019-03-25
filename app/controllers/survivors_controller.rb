@@ -4,7 +4,7 @@ class SurvivorsController < ApplicationController
   # GET /survivors
   def index
     @survivors = Survivor.all
-    render json: @survivors, status: :ok
+    render json: { survivors: @survivors }, status: :ok
   end
 
   # GET /survivors/:id
@@ -18,7 +18,7 @@ class SurvivorsController < ApplicationController
       @survivor = Survivor.new(survivor_params.merge(resources_attributes: resources_params[:resources]))
 
       if @survivor.save
-        render json: @survivor, status: :created
+        render json: { survivor: @survivor }, status: :created
       else
         render json: @survivor.errors, status: :unprocessable_entity
       end

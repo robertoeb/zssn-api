@@ -16,6 +16,6 @@ class Resource < ApplicationRecord
   }.with_indifferent_access
 
   def self.points_sum(resource)
-    resource[:amount].to_i * Resource::RESOURCES_POINTS[resource[:item].downcase]
+    resource[:amount].to_i * RESOURCES_POINTS[resource[:item].downcase]
   end
 end

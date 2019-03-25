@@ -1,7 +1,7 @@
 
 require 'rails_helper'
 
-RSpec.describe TradesController, item: :controller do
+RSpec.describe TradesController, type: :controller do
 
   let(:survivor1) {
     FactoryBot.create :survivor,
